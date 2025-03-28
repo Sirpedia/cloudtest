@@ -5,13 +5,16 @@
   <h1 id="text"></h1>
   
   <script>
-      // Declare the variable correctly
-      let cloud_testtext = document.getElementById("text");
+      // Declare the cloud variable correctly
+      let cloud_test = "hi"; 
+      
+      // Get the element with ID 'text'
+      let testtext = document.getElementById("text");
       
       // Define the function to update the innerHTML
       function test() {
-          if (cloud_testtext) { // Ensure the element exists before assigning to it
-              cloud_testtext.innerHTML = "hi";
+          if (testtext) { // Ensure the element exists before assigning to it
+              testtext.innerHTML = cloud_test;
           } else {
               console.error("Element with ID 'text' not found!");
           }
