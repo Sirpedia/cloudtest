@@ -1,23 +1,16 @@
 <html>
-  <script src="https://kihtrak.com/cloud_variable/cloudify.min.js"></script>  
-  <button onclick="test()">test</button>
-  
-  <h1 id="text"></h1>
-  
-  <script>
-      // Declare the cloud variable correctly
-      let cloud_test = "hi"; 
-      
-      // Get the element with ID 'text'
-      let testtext = document.getElementById("text");
-      
-      // Define the function to update the innerHTML
-      function test() {
-          if (testtext) { // Ensure the element exists before assigning to it
-              testtext.innerHTML = cloud_test;
-          } else {
-              console.error("Element with ID 'text' not found!");
-          }
-      }
-  </script>
+    <script src="https://kihtrak.com/cloud_variable/cloudify.min.js"></script>
+    
+    <button onclick="test()">test</button>
+    <h1 id="click"></h1>
+    
+    <script>
+   document.head.appendChild((($, s)=>{$.src=s;return $})(document.createElement('script'), "https://kihtrak.com/cloud_variable/cloudify.min.js"))
+        function test() {
+        cloud_test = "hi" ;
+        document.getElementById("click").innerHTML = cloud_test
+        }
+        
+        
+    </script>
 </html>
