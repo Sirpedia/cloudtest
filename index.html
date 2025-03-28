@@ -1,16 +1,38 @@
+<!DOCTYPE html>
 <html>
+<head>
+    <title>Cloud Variable Message</title>
     <script src="https://kihtrak.com/cloud_variable/cloudify.min.js"></script>
-    
-    <button onclick="test()">test</button>
-    <h1 id="click"></h1>
-    
+</head>
+<body>
+    <h1>Welcome to the Cloud Message Board!</h1>
+    <p>The current message is:</p>
+    <h2 id="message">Loading...</h2>
+
+    <input id="newMessage" type="text" placeholder="Type a new message..." />
+    <button onclick="updateMessage()">Update Message</button>
+
     <script>
-   document.head.appendChild((($, s)=>{$.src=s;return $})(document.createElement('script'), "https://kihtrak.com/cloud_variable/cloudify.min.js"))
-        function test() {
-        var cloud_test = "hi" ;
-        document.getElementById("click").innerHTML = cloud_test
+        // Declare the cloud variable
+        var cloud_message;
+
+        // Function to update the displayed message
+        function updateDisplay() {
+            document.getElementById("message").innerText = cloud_message || "No message yet!";
         }
-        
-        
+
+        // Function to update the cloud message
+        function updateMessage() {
+            var input = document.getElementById("newMessage").value;
+            if (input.trim()) {
+                cloud_message = input;
+                document.getElementById("newMessage").value = ""; // Clear input field
+            }
+            updateDisplay();
+        }
+
+        // Periodically sync the message and update the display
+        setInterval(updateDisplay, 1000);
     </script>
+</body>
 </html>
